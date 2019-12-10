@@ -49,10 +49,17 @@ const freeAGoat = (goatId) => {
       response.isBusy = false;
     }
   });
-  console.log(goats);
+};
+
+const takeAGoat = (goatId) => {
+  goats.forEach((response) => {
+    if (response.id === goatId) {
+      response.isBusy = true;
+    }
+  });
 };
 
 // const goatIndex.findIndex((goat) => goat.id === goatId); CAN ALSO DO THIS
 // goats[goatIndex].isBusy = false;
 
-export default { getGoats, freeAGoat };
+export default { getGoats, freeAGoat, takeAGoat };

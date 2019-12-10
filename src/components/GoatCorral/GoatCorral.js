@@ -7,12 +7,14 @@ class GoatCorral extends React.Component {
   static propTypes = {
     goats: PropTypes.arrayOf(goatShape.goatShape),
     freeGoat: PropTypes.func,
+    takeGoat: PropTypes.func,
   }
 
   render() {
     const myGoats = this.props.goats;
     const { freeGoat } = this.props;
-    const goatCards = myGoats.map((goat) => <Goat key={goat.id} goat={goat} freeGoat={freeGoat} />);
+    const { takeGoat } = this.props;
+    const goatCards = myGoats.map((goat) => <Goat key={goat.id} goat={goat} freeGoat={freeGoat} takeGoat={takeGoat} />);
 
     return (
       <div className="goatCorral">
