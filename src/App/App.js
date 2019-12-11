@@ -3,6 +3,7 @@ import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import goatData from '../helpers/data/goatData';
 import GoatCorral from '../components/GoatCorral/GoatCorral';
+import AvailableGoats from '../components/AvailableGoats/AvailableGoats';
 
 class App extends React.Component {
   state = {
@@ -26,10 +27,15 @@ class App extends React.Component {
     this.setState({ goats });
   }
 
+  goatsAvailable = () => {
+    const daGoats = goatData.getGoats();
+    this.setState({ daGoats });
+  }
+
   render() {
     return (
       <div className="App">
-        <button className="btn btn-danger">Bootstrap Button</button>
+        <AvailableGoats goats={this.state.goats} />
         <GoatCorral goats={this.state.goats} freeGoat={this.freeGoat} takeGoat={this.takeGoat} />
       </div>
     );
