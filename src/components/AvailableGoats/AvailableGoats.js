@@ -9,7 +9,8 @@ class AvailableGoats extends React.Component {
 
   getGoatCount = () => {
     const { goats } = this.props;
-    return goats.filter((goat) => !goat.isBusy).length;
+    // eslint-disable-next-line max-len
+    return goats.filter((goat) => !goat.isBusy).length; // !goat.isBusy is same as saying goat.isBusy !== true;
   }
 
   render() {
